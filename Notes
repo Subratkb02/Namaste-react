@@ -1,0 +1,66 @@
+# React Notes
+
+## What is React?
+- React is a JavaScript library for building user interfaces.
+- It is maintained by Facebook and a community of individual developers and companies.
+- React can be used as a base in the development of single-page or mobile applications.
+
+## Key Features
+- **Components**: React is all about components. A component is a self-contained module that renders some output.
+- **JSX**: JSX is a syntax extension for JavaScript that looks similar to XML or HTML.
+- **Virtual DOM**: React creates a virtual DOM to improve performance. It updates only the parts of the DOM that have changed.
+- **State Management**: React provides a way to manage the state of an application using `useState` and `useReducer` hooks.
+- **Lifecycle Methods**: React components have lifecycle methods that you can override to run code at particular times in the process.
+
+## Basic Concepts
+- **Components**: The building blocks of a React application. They can be functional or class-based.
+- **Props**: Short for properties, props are read-only attributes used to pass data from parent to child components.
+- **State**: A built-in object that stores property values that belong to the component. When the state object changes, the component re-renders.
+- **Hooks**: Functions that let you use state and other React features in functional components.
+
+## Example Code
+
+### Functional Component
+```jsx
+import React, { useState } from 'react';
+
+function Counter() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>
+                Click me
+            </button>
+        </div>
+    );
+}
+
+export default Counter;
+```
+
+### Class Component
+```jsx
+import React, { Component } from 'react';
+
+class Counter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+
+    render() {
+        return (
+            <div>
+                <p>You clicked {this.state.count} times</p>
+                <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+                    Click me
+                </button>
+            </div>
+        );
+    }
+}
+
+export default Counter;
+```
